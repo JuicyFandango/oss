@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="stylesheet" type="text/css" href="css/angular-material.css">
+  <!-- Angular JS resources -->
+  <script src='js/Library/angular/angular.js'></script>
+  <script src='js/Library/angular-animate/angular-animate.js'></script>
+  <script src='js/Library/angular-aria/angular-aria.js'></script>
+  <script src='js/Library/angular-material/angular-material.js'></script>
+  <script src='js/Library/angular-ui-router/release/angular-ui-router.js'></script>
+  <!-- Loading Angular Controller for Index -->
+  <script src='app-state.js'></script>
+  <!--  Specific Controllers -->
+  <script src='controllers/dev/testController.js'></script>
+  <style>
+  .contentPadding {
+    padding: 24px;
+  }
+  </style>
+</head>
+<!-- Web Content -->
+<body>
+  <body ng-app="app">
+      <div ng-controller="AppCtrl" ng-cloak="" class="navBardemoBasicUsage" ng-app="MyApp">
+        <md-content class="md-padding">
+          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#hello" name="page1">Page One</md-nav-item>
+            <md-nav-item md-nav-href="#about" name="page2">Page Two</md-nav-item>
+            <md-nav-item md-nav-href="#dev" name="page3">Page Two</md-nav-item>
+          </md-nav-bar>
+        </md-content>
+      </div>
+    <!-- View Content -->
+    <md-content class="contentPadding"flex="" layout-padding="">
+      <ui-view>
+      </ui-view>
+    </md-content>
+    <!-- End of view-->
+  </body>
+</body>
+<!-- End of Web Content -->
+</html>
