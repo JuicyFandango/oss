@@ -2,7 +2,8 @@ var app = angular.module("app", ["ngMaterial", "ui.router"]);
 
 app.constant("env",{
   "APIKEY"  : "",
-  "APIDIR"  : "https://osu.ppy.sh/api/"
+  "APIDIR"  : "https://osu.ppy.sh/api/",
+  "IMGSRC"  : "http://b.ppy.sh/thumb/"
 });
 
 app.config(function($stateProvider){
@@ -21,9 +22,11 @@ app.config(function($stateProvider){
   $stateProvider.state(aboutState);
 
   var devState = {
-    name: 'dev',
-    url: '/dev',
-    templateUrl: 'modules/test.html'
+    name        : 'dev',
+    url         : '/dev',
+    templateUrl : 'views/test.html',
+    controller  : 'testController'
+
   }
   $stateProvider.state(devState);
 });
