@@ -1,0 +1,28 @@
+<div ng-cloak>
+  <md-content class="md-padding" layout-xs="column" layout="row">
+  <div flex-xs flex-gt-xs="50" layout="column" ng-repeat="beatmap in Beatmaps">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline"><strong>{{beatmap.title}}</strong></span>
+            <span class="md-subhead"><strong>Artist:</strong> {{beatmap.artist}}</span>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text" layout="column">
+                <p><strong>Creator:</strong> {{beatmap.creator}}</p>
+                <p><strong>BPM: </strong>{{beatmap.bpm}}</p>
+                <p><strong>Length: </strong>{{beatmap.total_length | secondsToDateTime | date:'HH:mm:ss'}}</p>
+                <p><strong>Status: </strong>{{beatmap.approved | beatMapApprovedStatus}}</p>
+              </div>
+            </md-list-item>
+          </md-card-title-text>
+          <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}l.jpg" class="md-card-image" alt="Washed Out">
+        </md-card-title>
+        <md-card-content>
+          <p>
+            This is a filler text, it should have the beatmaps description, it also should have a expandable section in case if it is way too big.
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-content>
+</div>

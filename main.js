@@ -24,7 +24,7 @@ app.on('ready', function() {
     });
 
     // Target HTML file which will be opened in window
-    mainWindow.loadURL('file://' + __dirname + "/app/index.html");
+    mainWindow.loadURL('file://' + __dirname + "/app/layout.html");
 
     // Uncomment to use Chrome developer tools
     // mainWindow.webContents.openDevTools({detach:true});
