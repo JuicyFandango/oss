@@ -1,57 +1,92 @@
-<!-- User Card Info -->
-<div  layout="row" ng-cloak>
-  <!-- User Image -->
-  <div layout="column" layour-fill>
+<div ng-cloak>
+  <!-- User Card -->
+  <div layout="row">
+    <!-- Image Card -->
     <md-card>
       <md-card-title>
         <md-card-title-media>
           <img class="profilePicSmall" ng-src="{{profileImageURL}}{{User.user_id}}_1462143398.jpg"></img>
-          <br>
           <center class="md-image-no-fill">
-            <i class="flag-icon flag-icon-{{User.country | lowercase }}"></i>
+            <i class="m-t-10 flag-icon flag-icon-{{User.country | lowercase }}"></i>
             <img class="m-t-5" src="img/support.png"></img>
           </center>
         </md-card-title-media>
       </md-card-title>
-    </md-card>
-    <md-card layout-align="center center">
-      <center>
-        <md-list-item>
-          <img class="m-s-5" src="img/icons/standard.gif" alt="STD">
-          <img class="m-s-5" src="img/icons/taiko.gif" alt="STD">
-          <img class="m-s-5" src="img/icons/ctb.gif" alt="STD">
-          <img class="m-s-5" src="img/icons/mania.gif" alt="STD">
-        </md-list-item>
-      </center>
+      <md-card-content>
+        <center>
+          <img src="img/icons/standard.gif" alt="STD">
+          <img src="img/icons/taiko.gif" alt="STD">
+          <img src="img/icons/ctb.gif" alt="STD">
+          <img src="img/icons/mania.gif" alt="STD">
+        </center>
+      </md-card-content>
+    </md-card >
+    <!-- Detail Card -->
+    <md-card flex>
+        <!-- User Info Title -->
+        <md-card-title>
+          <md-card-title-text>
+            <md-headline>
+              <h1 class="m-0">{{User.username}}</h1>
+            </md-headline>
+            <md-subhead>
+              <b class="m-l-5">Last time seen:</b> Yesterday
+            </md-subhead>
+          </md-card-title-text>
+        </md-card-title>
+        <!-- User Status -->
+        <md-card-content>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat elit ut finibus fermentum. Fusce at metus nisl. Sed vestibulum iaculis amet.</p>
+        </md-card-content>
+        <!-- Mod Status -->
+        <div class="mod-status-active">
+          <center>Mod Status <strong> Active </strong></center>
+        </div>
+        <!-- User Actions -->
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>
+            <md-icon md-svg-src="img/icons/ic_help_White_24px.svg"></md-icon>
+            Ask for Mod
+          </md-button>
+        </md-card-actions>
     </md-card>
   </div>
-  <!-- User Info -->
-  <div layout="row" flex="100">
-    <md-card>
-      <!-- Userd Info Title -->
-      <md-card-title>
-        <md-card-title-text>
-          <md-headline>
-            <h1 class="m-5">{{User.username}}</h1>
-          </md-headline>
-        </md-card-title-text>
-      </md-card-title>
-      <!-- User Description -->
-      <md-card-content hide-xs>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis, magna sit amet feugiat accumsan, libero mauris commodo ligula, id egestas mi elit nec dolor. Pellentesque placerat consectetur magna eget pretium. Nunc in suscipit eros. Integer sodales placerat arcu sit amet faucibus. Pellentesque commodo nec leo at rhoncus. Nam dictum, nulla ut luctus convallis, arcu nunc dapibus enim, quis ornare nunc nibh vel lacus.</p>
-      </md-card-content>
-      <!-- Mod Status -->
-      <div class="mod-status-active">
-        <center>Mod Status <strong> Active </strong></center>
-      </div>
-      <!-- User Actions -->
-      <md-card-actions layout="row" layout-align="end center">
-        <md-button>
-          <md-icon md-svg-src="img/icons/ic_help_White_24px.svg"></md-icon>
-          Ask for Mod
-        </md-button>
-      </md-card-actions>
-    </md-card>
+
+  <!-- Beatmaps -->
+  <div layout="row">
+    <div flex>
+      <md-card>
+        <md-card-title>
+          <b>Latest Uploaded Beatmaps</b>
+        </md-card-title>
+        <md-card-content>
+          <div layout="row">
+            <div>
+              IMG
+            </div>
+            <div flex>
+              Name | Uploader |Current Status
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+    <div flex>
+      <md-card>
+        <md-card-title>
+          <b>Latest Moded Beatmaps</b>
+        </md-card-title>
+        <md-card-content>
+            <div layout="row">
+              <div>
+                IMG
+              </div>
+              <div flex>
+                Name | Uploader |Current Status
+              </div>
+            </div>
+        </md-card-content>
+      </md-card>
+    </div>
   </div>
 </div>
-<!-- End of user Card -->

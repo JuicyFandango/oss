@@ -22,7 +22,7 @@ app.on('ready', function() {
         "height": 900,
         "toolbar": false,
         "minHeight" : 500,
-        "minWidth" : 400
+        "minWidth" : 600
     });
 
     // Target HTML file which will be opened in window
