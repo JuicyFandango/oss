@@ -3,6 +3,9 @@ app.controller('layoutController', function($scope, $rootScope, $mdSidenav,env) 
     $mdSidenav('left').toggle();
   };
 
+  $rootScope.$on('$routeChangeSuccess', function(event, current) {
+    $scope.currentLink = getCurrentLinkFromRoute(current);
+  });
 
   $scope.User = {
     "user_id"      : "1869277",
@@ -20,7 +23,7 @@ app.controller('layoutController', function($scope, $rootScope, $mdSidenav,env) 
     "count_rank_ss": "54",
     "count_rank_s" : "81",        // Counts for SS/S/A ranks on maps
     "count_rank_a" : "862",
-    "country"      : "DE",        // Uses the ISO3166-1 alpha-2 country code naming. See this for more information: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2/wiki/ISO_3166-1_alpha-2)
+    "country"      : "CL",        // Uses the ISO3166-1 alpha-2 country code naming. See this for more information: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2/wiki/ISO_3166-1_alpha-2)
     "pp_country_rank":"1337",     // The user's rank in the country.
     "events"       : [{           // Contains events for this user
         "display_html"  : "<img src='\/images\/A_small.png'\/>...",

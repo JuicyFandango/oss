@@ -13,8 +13,14 @@ app.config(function($stateProvider){
   var profileState = {
     name: 'myProfile',
     url: '/myProfile',
-    templateUrl: 'views/beatmapListing.html',
+    templateUrl: 'views/profile.html',
     controller:  'myProfileController'
+  }
+  var profileState = {
+    name: 'myProfile',
+    url: '/myProfile/:id',
+    templateUrl: 'views/profile.html',
+    controller:  'userProfileController'
   }
   $stateProvider.state(profileState);
 
