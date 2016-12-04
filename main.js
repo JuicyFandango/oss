@@ -17,10 +17,12 @@ app.on('ready', function() {
     // Other options available at:
     // http://electron.atom.io/docs/latest/api/browser-window/#new-browserwindow-options
     mainWindow = new BrowserWindow({
-        name: "ea-todo",
-        width: 1000,
-        height: 900,
-        toolbar: false
+        "name": "ea-todo",
+        "width": 1000,
+        "height": 900,
+        "toolbar": false,
+        "minHeight" : 500,
+        "minWidth" : 400
     });
 
     // Target HTML file which will be opened in window

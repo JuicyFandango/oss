@@ -19,36 +19,74 @@
   <script src='controllers/beatmap/beatmapListingController.js'></script>
   <script src='controllers/user/myProfileController.js'></script>
   <style>
+  /*Layout setters */
   .contentPadding {
     padding: 24px;
   }
   md-nav-bar .md-nav-bar {
-    background: white;
+    background-color: white;
   }
-  .sideMenuProfileCard .profilePic{
+  .profilePicSmall{
     border-radius: 50%;
     border: 3px solid #FFFFFF;
     width: 128px;
+  }
+
+  /* Styling */
+  .mod-status-active{
+    background-color: #5087e0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+  }
+  /* Layout Helpers */
+  .m-t-5{
+    margin-top:5px;
+  }
+  .m-b-5{
+    margin-bottom:5px;
+  }
+  .m-l-5{
+    margin-left:5px;
+  }
+  .m-r-5{
+    margin-right:5px;
+  }
+  .m-s-5{
+    margin-right:5px;
+    margin-left:5px;
+  }
+  .m-u-5{
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+  .m-5{
+    margin:5px;
+  }
+  .m-0{
+    margin:0px;
   }
   </style>
 </head>
 <!-- Web Content -->
 <body ng-app="app" ng-controller="layoutController">
-  <!-- Nav Bar -->
+  <!-- Nav Bar and Container -->
   <div class="navBar">
+    <!-- Nav Bar -->
     <md-content ng-cloak="">
       <md-nav-bar nav-bar-aria-label="navigation links" class="md-theme-grey" md-selected-nav-item="currentNavItem">
         <md-button class="md-fab" aria-label="Menu" ng-click="openLeftMenu()">
-          <i class="fa fa-bars" aria-hidden="true"></i>
+          <md-icon md-svg-icon="img/icons/ic_menu_white_48px.svg"></md-icon>
         </md-button>
         <md-nav-item md-nav-href="#beatmaps">Beatmaps</md-nav-item>
       </md-nav-bar>
+    <!-- End of Nav Bar -->
+      <!-- View Content -->
       <md-content class="md-padding webContent" flex="" layout-padding="" ng-cloak="">
-        <!-- View Content -->
         <ui-view>
         </ui-view>
-        <!-- End of View Content -->
       </md-content>
+      <!-- End of View Content -->
     </md-content>
   </div>
   <!-- End of Nav Bar -->
@@ -58,17 +96,17 @@
       <!-- Profile -->
       <md-toolbar layout-padding layout="row" class="sideMenuProfileCard">
         <md-card-avatar flex>
-          <a href="#myProfile"><img class="profilePic" ng-src="{{profileImageURL}}{{User.user_id}}_1462143398.jpg"></img></a>
+          <a href="#myProfile"><img class="profilePicSmall" ng-src="{{profileImageURL}}{{User.user_id}}_1462143398.jpg"></img></a>
         </md-card-avatar>
         <md-card-avatar flex>
           <md-list-item class="md-2-line">
             <div class="md-list-item-text" layout="column">
-              <h2 data-fittext style="margin:0px;"><strong>{{User.username}}</strong></h2>
-              <span style="margin-top:5px; margin-bottom:5px;"class="flag-icon flag-icon-{{User.country | lowercase }}"></span>
+              <h2 class="m-5" data-fittext style="margin:0px;"><strong>{{User.username}}</strong></h2>
+              <span class="flag-icon flag-icon-{{User.country | lowercase }}"></span>
               <!-- Idk if we can accees the support status VIA API -->
               <img src="img/support.png"></img>
               <p><strong>Level: </strong>{{User.level | number : 2}}</p>
-              <!-- Idk if we can access the amount of kudosus via API -->
+              <!-- Idk if we can access the amount of kudosus via APIyy -->
               <p><strong>Kudosus: </strong>1</p>
             </div>
           </md-list-item>

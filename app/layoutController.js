@@ -7,7 +7,9 @@ app.controller('layoutController', function($scope, $rootScope, $mdSidenav,env) 
     $scope.currentLink = getCurrentLinkFromRoute(current);
   });
 
-  $scope.User = {
+
+  //DELETE THIS WHEN API OK
+  $rootScope.User = {
     "user_id"      : "1869277",
     "username"     : "Ferret",
     "count300"     : "1337",      // Total amount for all ranked, approved, and loved beatmaps played
@@ -32,7 +34,9 @@ app.controller('layoutController', function($scope, $rootScope, $mdSidenav,env) 
         "date"      : "2013-07-07 22:34:04",
         "epicfactor"    : "1"      // How "epic" this event is (between 1 and 32)
     }]
-  }
+  };
+
+  $scope.User = $rootScope.User;
 
   $scope.profileImageURL = env.USERIMGURL;
 });

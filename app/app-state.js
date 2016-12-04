@@ -10,26 +10,21 @@ app.constant("env",{
 
 //Routes
 app.config(function($stateProvider){
-  var profileState = {
+  var myProfileState = {
     name: 'myProfile',
     url: '/myProfile',
-    templateUrl: 'views/profile.html',
+    templateUrl: 'views/user/profile.html',
     controller:  'myProfileController'
   }
-  var profileState = {
-    name: 'myProfile',
+  $stateProvider.state(myProfileState);
+
+  var userProfileState = {
+    name: 'userProfile',
     url: '/myProfile/:id',
-    templateUrl: 'views/profile.html',
+    templateUrl: 'views/user/profile.html',
     controller:  'userProfileController'
   }
-  $stateProvider.state(profileState);
-
-  var aboutState = {
-    name: 'about',
-    url: '/about',
-    template: '<h3>Its the UI-Router hello world app!</h3>'
-  }
-  $stateProvider.state(aboutState);
+  $stateProvider.state(userProfileState);
 
   var beatmapsState = {
     name        : 'beatmaps',
