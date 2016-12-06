@@ -10,6 +10,9 @@ md-nav-bar .md-nav-bar {
   border: 3px solid #FFFFFF;
   width: 128px;
 }
+.beatmapImageLarge{
+  max-height: 144px;
+}
 
 /* Styling */
 .mod-status-active{

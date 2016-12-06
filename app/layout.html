@@ -49,7 +49,12 @@
       <!-- Profile -->
       <md-toolbar layout-padding layout="row" class="sideMenuProfileCard">
         <md-card-avatar flex>
+        <section ng-if="profileImageURL == null">
+                  <a href="#myProfile"><img class="profilePicSmall" ng-src="img/default_user.jpeg"></img></a>
+        </section>
+        <section ng-if="profileImageURL != null">
           <a href="#myProfile"><img class="profilePicSmall" ng-src="{{profileImageURL}}{{User.user_id}}_1462143398.jpg"></img></a>
+        </section>
         </md-card-avatar>
         <md-card-avatar flex>
           <md-list-item class="md-2-line">

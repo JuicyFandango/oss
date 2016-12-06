@@ -1,13 +1,4 @@
 var app = angular.module("app", ["ngMaterial", "ui.router","ngAria"]);
-
-//App constants
-app.constant("env",{
-  "APIKEY"          : "",
-  "APIDIR"          : "https://osu.ppy.sh/api/",
-  "BMIMGURL"        : "http://b.ppy.sh/thumb/",
-  "USERIMGURL"      : "https://a.ppy.sh/"
-});
-
 //Routes
 app.config(function($stateProvider){
   var myProfileState = {

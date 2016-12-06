@@ -1,5 +1,6 @@
+<center><h1>Latest Beatmaps</h1></center>
 <div ng-cloak layout="row" layout-wrap layout-align="center center">
-  <md-card style="width:550px;" ng-repeat="beatmap in Beatmaps">
+  <md-card style="width:550px;" ng-repeat="beatmap in LatestBeatmaps">
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline"><strong>{{beatmap.title}}</strong></span>
@@ -13,7 +14,7 @@
           </div>
         </md-list-item>
       </md-card-title-text>
-      <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}l.jpg" class="md-card-image" alt="Washed Out">
+      <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}l.jpg" class="md-card-image beatmapImageLarge" alt="BM IMAGE">
     </md-card-title>
     <md-card-content>
       <p>
