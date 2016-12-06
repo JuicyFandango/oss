@@ -35,7 +35,7 @@
       </md-nav-bar>
     <!-- End of Nav Bar -->
       <!-- View Content -->
-      <md-content class="md-padding webContent" flex="" layout-padding="" ng-cloak="">
+      <md-content class="md-padding webContent" flex="" layout-padding="" ng-cloak>
         <ui-view>
         </ui-view>
       </md-content>
@@ -49,23 +49,19 @@
       <!-- Profile -->
       <md-toolbar layout-padding layout="row" class="sideMenuProfileCard">
         <md-card-avatar flex>
-        <section ng-if="profileImageURL == null">
+        <section ng-if="User == null">
                   <a href="#myProfile"><img class="profilePicSmall" ng-src="img/default_user.jpeg"></img></a>
         </section>
         <section ng-if="profileImageURL != null">
           <a href="#myProfile"><img class="profilePicSmall" ng-src="{{profileImageURL}}{{User.user_id}}_1462143398.jpg"></img></a>
         </section>
         </md-card-avatar>
-        <md-card-avatar flex>
+        <md-card-avatar flex >
           <md-list-item class="md-2-line">
-            <div class="md-list-item-text" layout="column">
+            <div class="md-list-item-text" layout="column" ng-if="User != null">
               <h2 class="m-5" data-fittext style="margin:0px;"><strong>{{User.username}}</strong></h2>
               <span class="flag-icon flag-icon-{{User.country | lowercase }}"></span>
-              <!-- Idk if we can accees the support status VIA API -->
-              <img src="img/support.png"></img>
               <p><strong>Level: </strong>{{User.level | number : 2}}</p>
-              <!-- Idk if we can access the amount of kudosus via APIyy -->
-              <p><strong>Kudosus: </strong>1</p>
             </div>
           </md-list-item>
         </md-card-avatar>

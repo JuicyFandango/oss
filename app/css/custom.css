@@ -10,8 +10,13 @@ md-nav-bar .md-nav-bar {
   border: 3px solid #FFFFFF;
   width: 128px;
 }
+.beatmapImageContainer{
+  height: 144px;
+  width: 160px;
+}
 .beatmapImageLarge{
   max-height: 144px;
+  max-width: 160px;
 }
 
 /* Styling */

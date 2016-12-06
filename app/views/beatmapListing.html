@@ -1,20 +1,22 @@
 <center><h1>Latest Beatmaps</h1></center>
-<div ng-cloak layout="row" layout-wrap layout-align="center center">
+<section ng-cloak layout="row" layout-wrap layout-align="center center">
   <md-card style="width:550px;" ng-repeat="beatmap in LatestBeatmaps">
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline"><strong>{{beatmap.title}}</strong></span>
         <span class="md-subhead"><strong>Artist:</strong> {{beatmap.artist}}</span>
         <md-list-item class="md-2-line">
-          <div class="md-list-item-text" layout="column">
+          <section class="md-list-item-text" layout="column">
             <p><strong>Creator:</strong> {{beatmap.creator}}</p>
             <p><strong>BPM: </strong>{{beatmap.bpm}}</p>
             <p><strong>Length: </strong>{{beatmap.total_length | secondsToDateTime | date:'HH:mm:ss'}}</p>
             <p><strong>Status: </strong>{{beatmap.approved | beatMapApprovedStatus}}</p>
-          </div>
+          </section>
         </md-list-item>
       </md-card-title-text>
-      <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}l.jpg" class="md-card-image beatmapImageLarge" alt="BM IMAGE">
+      <section class="beatmapImageContainer">
+          <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}l.jpg" class="md-card-image beatmapImageLarge" alt="BM IMAGE">
+      </section>
     </md-card-title>
     <md-card-content>
       <p>
@@ -22,4 +24,4 @@
       </p>
     </md-card-content>
   </md-card>
-</div>
+</section>
