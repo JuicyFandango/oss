@@ -1,6 +1,6 @@
-<div ng-cloak>
+<section ng-cloak>
   <!-- User Card -->
-  <div layout="row">
+  <section layout="row">
     <!-- Image Card -->
     <md-card>
       <md-card-title>
@@ -39,9 +39,9 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat elit ut finibus fermentum. Fusce at metus nisl. Sed vestibulum iaculis amet.</p>
         </md-card-content>
         <!-- Mod Status -->
-        <div class="mod-status-active">
-          <center>Mod Status <strong> Active </strong></center>
-        </div>
+        <section class="mod-status-active">
+          <center>Modding Status <strong> Active </strong></center>
+        </section>
         <!-- User Actions -->
         <md-card-actions layout="row" layout-align="end center">
           <md-button>
@@ -50,43 +50,70 @@
           </md-button>
         </md-card-actions>
     </md-card>
-  </div>
+  </section>
 
   <!-- Beatmaps -->
-  <div layout="row">
-    <div flex>
-      <md-card>
+  <section layout="row">
+    <section flex>
+      <md-card ng->
         <md-card-title>
           <b>Latest Uploaded Beatmaps</b>
         </md-card-title>
-        <md-card-content>
-          <div layout="row">
-            <div>
-              IMG
-            </div>
-            <div flex>
-              Name | Uploader |Current Status
-            </div>
-          </div>
-        </md-card-content>
+        <section ng-if="User.RecentlyUploadedBeatmaps != null">
+          <md-card-content  ng-repeat="beatmap in User.RecentlyUploadedBeatmaps">
+              <section layout="row" layout-align="center center">
+                <section class="m-r-5">
+                  <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}.jpg" class="md-card-image" alt="IMG">
+                </section>
+                <section flex>
+                  <b>Title: </b> {{beatmap.title}} |
+                  <section hide-xs>
+                    <b>Uploader: </b> {{beatmap.creator}} |
+                  </section>
+                  <b>Status: </b> {{beatmap.approved |beatMapApprovedStatus}}
+                </section>
+              </section>
+          </md-card-content>
+        </section>
+        <section ng-if="User.RecentlyUploadedBeatmaps == null">
+          <md-card-content >
+              <section layout="row" layout-align="center center">
+                <b>This user hasn't uploaded any beatmap yet!</b>
+              </section>
+          </md-card-content>
+        </section>
       </md-card>
-    </div>
-    <div flex>
+    </section>
+    <!-- Lates Modded BM -->
+    <section flex>
       <md-card>
         <md-card-title>
-          <b>Latest Moded Beatmaps</b>
+          <b>Latest Modded Beatmaps</b>
         </md-card-title>
-        <md-card-content>
-            <div layout="row">
-              <div>
-                IMG
-              </div>
-              <div flex>
-                Name | Uploader |Current Status
-              </div>
-            </div>
-        </md-card-content>
+        <section ng-if="User.RecentModdedBeatmaps != null">
+          <md-card-content  ng-repeat="beatmap in User.RecentModdedBeatmaps">
+              <section layout="row" layout-align="center center">
+                <section class="m-r-5">
+                  <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}.jpg" class="md-card-image" alt="IMG">
+                </section>
+                <section flex>
+                  <b>Title: </b> {{beatmap.title}} |
+                  <section hide-xs>
+                    <b>Uploader: </b> {{beatmap.creator}} |
+                  </section>
+                  <b>Status: </b> {{beatmap.approved |beatMapApprovedStatus}}
+                </section>
+              </section>
+          </md-card-content>
+        </section>
+        <section ng-if="User.RecentModdedBeatmaps == null">
+          <md-card-content >
+              <section layout="row" layout-align="center center">
+                <b>This user hasn't modded any beatmap yet!</b>
+              </section>
+          </md-card-content>
+        </section>
       </md-card>
-    </div>
-  </div>
-</div>
+    </section>
+  </section>
+</section>
