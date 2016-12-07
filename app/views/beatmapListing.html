@@ -1,6 +1,6 @@
 <center><h1>Latest Beatmaps</h1></center>
 <section ng-cloak layout="row" layout-wrap layout-align="center center">
-  <md-card style="width:550px;" ng-repeat="beatmap in LatestBeatmaps">
+  <md-card style="width:550px; height:230px;" ng-repeat="beatmap in LatestBeatmaps">
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline"><strong>{{beatmap.title}}</strong></span>
@@ -11,6 +11,7 @@
             <p><strong>BPM: </strong>{{beatmap.bpm}}</p>
             <p><strong>Length: </strong>{{beatmap.total_length | secondsToDateTime | date:'HH:mm:ss'}}</p>
             <p><strong>Status: </strong>{{beatmap.approved | beatMapApprovedStatus}}</p>
+            <p><strong>Last update: </strong>{{beatmap.last_update | date:'yyyy-MM-dd HH:mm'}}</p>
           </section>
         </md-list-item>
       </md-card-title-text>
@@ -18,10 +19,5 @@
           <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}l.jpg" class="md-card-image beatmapImageLarge" alt="BM IMAGE">
       </section>
     </md-card-title>
-    <md-card-content>
-      <p>
-        This is a filler text, it should have the beatmaps description, it also should have a expandable section in case if it is way too big.
-      </p>
-    </md-card-content>
   </md-card>
 </section>

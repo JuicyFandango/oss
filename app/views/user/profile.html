@@ -44,7 +44,7 @@
         </section>
         <!-- User Actions -->
         <md-card-actions layout="row" layout-align="end center">
-          <md-button>
+          <md-button class="md-raised">
             <md-icon md-svg-src="img/icons/ic_help_White_24px.svg"></md-icon>
             Ask for Mod
           </md-button>
@@ -59,18 +59,23 @@
         <md-card-title>
           <b>Latest Uploaded Beatmaps</b>
         </md-card-title>
-        <section ng-if="User.RecentlyUploadedBeatmaps != null">
-          <md-card-content  ng-repeat="beatmap in User.RecentlyUploadedBeatmaps">
+        <!-- If there are Uploads -->
+        <section ng-if="UploadedBeatmaps != null">
+          <md-card-content  ng-repeat="beatmap in UploadedBeatmaps">
               <section layout="row" layout-align="center center">
                 <section class="m-r-5">
                   <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}.jpg" class="md-card-image" alt="IMG">
                 </section>
-                <section flex>
-                  <b>Title: </b> {{beatmap.title}} | <b>Uploader: </b> {{beatmap.creator}} | <b>Status: </b> {{beatmap.approved | beatMapApprovedStatus}}
+                <section flex="70">
+                  <b>Title: </b> {{beatmap.title}}
+                </section>
+                <section flex="30">
+                  <b>Status: </b> {{beatmap.approved | beatMapApprovedStatus}}
                 </section>
               </section>
           </md-card-content>
         </section>
+        <!-- If no uploads -->
         <section ng-if="User.RecentlyUploadedBeatmaps == null">
           <md-card-content >
               <section layout="row" layout-align="center center">
@@ -80,6 +85,7 @@
         </section>
       </md-card>
     </section>
+
     <!-- Lates Modded BM -->
     <section flex>
       <md-card>

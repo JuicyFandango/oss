@@ -1,10 +1,5 @@
-app.controller('layoutController', function($scope, $rootScope, $http, $mdSidenav, env) {
+app.controller('layoutController', function($scope, $mdSidenav, $stateParams) {
   $scope.openLeftMenu = function() {
     $mdSidenav('left').toggle();
   };
-
-  $rootScope.$on('$routeChangeSuccess', function(event, current) {
-    $scope.currentLink = getCurrentLinkFromRoute(current);
-  });
-  
 });

@@ -1,0 +1,23 @@
+<div layout-fill layout="column" layout-align="center none">
+    <div layout="row" layout-align="center none">
+        <md-card flex="50" flex-sm="100" flex-md="80">
+          <form name="loginForm" ng-submit="login()">
+            <section layout="row" class="md-padding">
+              <md-input-container flex>
+                <label>Username</label>
+                <input type="text" name="txtUser" ng-model="user.name" required>
+              </md-input-container>
+            </section>
+            <section layout="row" class="md-padding">
+              <md-input-container flex>
+                <label>Password</label>
+                <input type="password" name="txtPass" ng-model="user.password" required>
+              </md-input-container>
+            </section>
+            <section layout="row" layout-align="end center"class="md-padding md-raised">
+              <md-button type="submit" class="md-raised"> Log in </md-button>
+            </section>
+          </form>
+        </md-card>
+    </div>
+</div>

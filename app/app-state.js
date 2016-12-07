@@ -1,30 +1,37 @@
 var app = angular.module("app", ["ngMaterial", "ui.router","ngAria"]);
 //Routes
-app.config(function($stateProvider){
+app.config(function($stateProvider,$urlRouterProvider){
+  var beatmapsState = {
+    name        : 'beatmaps',
+    url         : '/beatmaps',
+    templateUrl : 'views/beatmapListing.html',
+    controller  : 'beatmapListingController',
+  }
+  $stateProvider.state(beatmapsState);
+
+  var loginState = {
+    name: 'login',
+    url: '/login',
+    templateUrl: 'views/user/login.html',
+    controller:  'loginController',
+  }
+  $stateProvider.state(loginState);
+
   var myProfileState = {
     name: 'myProfile',
     url: '/myProfile',
     templateUrl: 'views/user/profile.html',
-    controller:  'myProfileController'
+    controller:  'myProfileController',
   }
   $stateProvider.state(myProfileState);
 
   var userProfileState = {
     name: 'userProfile',
-    url: '/myProfile/:id',
+    url: '/user/:id',
     templateUrl: 'views/user/profile.html',
-    controller:  'userProfileController'
+    controller:  'userProfileController',
   }
   $stateProvider.state(userProfileState);
-
-  var beatmapsState = {
-    name        : 'beatmaps',
-    url         : '/beatmaps',
-    templateUrl : 'views/beatmapListing.html',
-    controller  : 'beatmapListingController'
-
-  }
-  $stateProvider.state(beatmapsState);
 });
 
 //Global Filters
@@ -56,6 +63,7 @@ app.filter('beatMapApprovedStatus', [function() {
   }}]
 );
 
+// Angular Material Theme Config
 app.config(function ($mdThemingProvider) {
   $mdThemingProvider.theme('default')
   .primaryPalette('indigo').accentPalette('blue').warnPalette('red').backgroundPalette('pink',{
