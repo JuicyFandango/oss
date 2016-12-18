@@ -1,2 +1,2 @@
-app.controller('userProfileController', function($scope, $rootScope, env) {
+app.controller('userProfileController', function($scope, $rootScope,$routeParams, env) {
 });

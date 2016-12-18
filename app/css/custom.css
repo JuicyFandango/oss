@@ -9,6 +9,7 @@ md-nav-bar .md-nav-bar {
   border-radius: 50%;
   border: 3px solid #FFFFFF;
   width: 128px;
+  height: 128px;
 }
 .beatmapImageContainer{
   height: 144px;

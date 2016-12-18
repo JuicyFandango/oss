@@ -2,8 +2,8 @@ var app = angular.module("app", ["ngMaterial", "ui.router","ngAria"]);
 //Routes
 app.config(function($stateProvider,$urlRouterProvider){
   var beatmapsState = {
-    name        : 'beatmaps',
-    url         : '/beatmaps',
+    name        : 'beatmapListing',
+    url         : '/beatmap',
     templateUrl : 'views/beatmapListing.html',
     controller  : 'beatmapListingController',
   }
@@ -32,36 +32,15 @@ app.config(function($stateProvider,$urlRouterProvider){
     controller:  'userProfileController',
   }
   $stateProvider.state(userProfileState);
+
+  var beatmapDetailState = {
+    name: 'beatmap',
+    url: '/beatmap/:id',
+    templateUrl: 'views/beatmap/beatmapDetail.html',
+    controller:  'beatmapDetailController',
+  }
+  $stateProvider.state(beatmapDetailState);
 });
-
-//Global Filters
-app.filter('secondsToDateTime', [function() {
-  return function(seconds) {
-    return new Date(1970, 0, 1).setSeconds(seconds);
-  }}]
-);
-
-app.filter('beatMapApprovedStatus', [function() {
-  return function(status) {
-    switch (status) {
-      case "-2":
-        return "Graveyarded"
-      case "-1":
-        return "WIP"
-      case "0":
-        return "Pending"
-      case "1":
-        return "Ranked"
-      case "2":
-        return "Approved"
-      case "3":
-        return "Qualified"
-      case "4":
-        return "Loved"
-    }
-
-  }}]
-);
 
 // Angular Material Theme Config
 app.config(function ($mdThemingProvider) {

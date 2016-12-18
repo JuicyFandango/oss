@@ -5,7 +5,7 @@
     <md-card>
       <md-card-title>
         <md-card-title-media>
-          <img class="profilePicSmall" ng-src="{{profileImageURL}}{{User.user_id}}_1462143398.jpg"></img>
+          <img class="profilePicSmall" ng-src="{{USERIMGURL}}{{User.user_id | userImageFilter}}"></img>
           <center class="md-image-no-fill">
             <i class="m-t-10 flag-icon flag-icon-{{User.country | lowercase }}"></i>
             <img class="m-t-5" src="img/support.png"></img>
@@ -48,6 +48,11 @@
             <md-icon md-svg-src="img/icons/ic_help_White_24px.svg"></md-icon>
             Ask for Mod
           </md-button>
+          <md-button class="md-raised">
+            <md-icon md-svg-src="img/icons/ic_help_White_24px.svg"></md-icon>
+            <a href="https://osu.ppy.sh/u/{{User.user_id}}" target="_blank"> My osu! Profile </a>
+          </md-button>
+
         </md-card-actions>
     </md-card>
   </section>
@@ -64,7 +69,9 @@
           <md-card-content  ng-repeat="beatmap in UploadedBeatmaps">
               <section layout="row" layout-align="center center">
                 <section class="m-r-5">
-                  <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}.jpg" class="md-card-image" alt="IMG">
+                  <a ui-sref="beatmap({id : beatmap.beatmapset_id })">
+                    <img ng-src="{{BMIMGURL}}{{beatmap.beatmapset_id}}.jpg" class="md-card-image" alt="IMG">
+                  </a>
                 </section>
                 <section flex="70">
                   <b>Title: </b> {{beatmap.title}}
@@ -76,7 +83,7 @@
           </md-card-content>
         </section>
         <!-- If no uploads -->
-        <section ng-if="User.RecentlyUploadedBeatmaps == null">
+        <section ng-if="UploadedBeatmaps == null">
           <md-card-content >
               <section layout="row" layout-align="center center">
                 <b>This user hasn't uploaded any beatmap yet!</b>
@@ -92,11 +99,11 @@
         <md-card-title>
           <b>Latest Modded Beatmaps</b>
         </md-card-title>
-        <section ng-if="User.RecentModdedBeatmaps != null">
+        <section ng-if="RecentModdedBeatmaps != null">
           <md-card-content  ng-repeat="beatmap in User.RecentModdedBeatmaps">
               <section layout="row" layout-align="center center">
                 <section class="m-r-5">
-                  <img ng-src="{{bmImageURL}}{{beatmap.beatmapset_id}}.jpg" class="md-card-image" alt="IMG">
+                  <img ng-src="{{BMIMGURL}}{{beatmap.beatmapset_id}}.jpg" class="md-card-image" alt="IMG">
                 </section>
                 <section flex>
                   <b>Title: </b> {{beatmap.title}} | <b>Uploader: </b> {{beatmap.creator}} | <b>Status: </b> {{beatmap.approved |beatMapApprovedStatus}}
@@ -104,7 +111,7 @@
               </section>
           </md-card-content>
         </section>
-        <section ng-if="User.RecentModdedBeatmaps == null">
+        <section ng-if="RecentModdedBeatmaps == null">
           <md-card-content >
               <section layout="row" layout-align="center center">
                 <b>This user hasn't modded any beatmap yet!</b>
